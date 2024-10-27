@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalafioreg's site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="header-image"></div>
+    <section>
+        <div class="nav-items">
+            <a href="index.html" class="nav-link">About me</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="others.html" class="nav-link">Others</a>
+            <a href="contact.html" class="nav-link">Contact</a>            
+            <div class="language-dropdown">
+                <img src="lang.png" alt="Language" class="language-icon">
+                <div class="language-list">                    
+                    <a href="others.html" id="en"><img src="eflag.png" alt="en"></a>
+                    <a href="others_pl.html" id="pl"><img src="pflag.png" alt="pl"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="columns-container">
+        <div class="empty-column"></div>
+        <section class="profile-section">
+            <div class="profile-left"> <br>
+                <h2>In progress...</h2><br><br>
+                <img src="mine.gif" alt="photo" class="social"> 
+            </div>
+        </section>
+        <div class="empty-column"></div>
+    </div>
+    <footer>
+        <h6>created 23.10.2024 by kalafioreg</h6>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.querySelector(".language-icon").addEventListener("click", function () {
+            document.querySelector(".language-list").classList.toggle("active");
+        });
+        document.getElementById("en").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "others.html"; 
+        });
+    
+        document.getElementById("pl").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "others_pl.html"; 
+        });
+    </script>
+</body>
+</html>

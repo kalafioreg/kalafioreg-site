@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalafioreg's site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        /* Styles for Polish version */
+        html[lang="pl"] .some-class {
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-image"></div>
+    <section>
+        <div class="nav-items">
+            <a href="index_pl.html" class="nav-link" data-key="about_me">O mnie</a>
+            <a href="project_pl.html" class="nav-link" data-key="projects">Projekty</a>
+            <a href="others_pl.html" class="nav-link" data-key="others">Inne</a>
+            <a href="contact_pl.html" class="nav-link" data-key="contact">Kontakt</a>            
+            <div class="language-dropdown">
+                <img src="lang.png" alt="Language" class="language-icon">
+                <div class="language-list">                    
+                    <a href="#" id="en"><img src="eflag.png" alt="en"></a>
+                    <a href="#" id="pl"><img src="pflag.png" alt="pl"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="columns-container">
+        <div class="empty-column"></div>
+        <section class="profile-section">
+            <div class="profile-left">
+                <img src="me.png" alt="photo">
+                <table>
+                    <tr>
+                        <th colspan="2" style="text-align: center;" data-key="basic_info">podstawowe info</th>
+                    </tr>
+                    <tr>
+                        <td data-key="pronouns">zaimki</td>
+                        <td>ona/on <img src="nb.png" alt="nonbinary"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="mbti">MBTI*</td>
+                        <td>INFJ <img src="infj.png" alt="infj"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="traits">cechy</td>
+                        <td>szczerość, sumienność, sceptycyzm, empatia</td>
+                    </tr>
+                    <tr>
+                        <td data-key="from">pochodzenie</td>
+                        <td>Polska <img src="pflag.png"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="birth_date">data urodzin</td>
+                        <td>10 Październik <img src="leaf.png" alt="leaf"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="interests">interests</td>
+                        <td>psychologia, filozofia, natura, zdrowie, psychodeliki, design, technologia, kreskówki</td>
+                    </tr>
+                    <tr>
+                        <td data-key="disorders">disorders</td>
+                        <td>asd, lęk społeczny, mutyzm wybiórczy</td>
+                    </tr>
+                </table> <br>
+                <h4><a href="https://pl.wikipedia.org/wiki/Test_Myers-Briggs" target="_blank" style="color: #7ca709; font-weight: bold; text-decoration: none;" data-key="what_is_mbti">*Co to MBTI?</a></h4>
+            </div>
+            <div class="profile-description"> <br>
+                <h2 class="who-header" data-key="who_is"><img src="who.png" alt="who" class="who-icon">Kim jest kalafioreg</h2>
+                <p data-key="who_text">Serwus, żyję w Twoich ścianach. A tak serio, jestem jedną z wielu istot na tej planecie. Tak jak wszyscy, próbuję odkryć kim naprawdę jestem i co chcę robić w życiu.</p>
+                <p data-key="who_text2">Pomimo niejednokrotnie napotykanych trudności, mam determinację do stałego rozwoju, by uczynić moje i Twoje życie lepszym.</p> <br>
+                <h2 class="who-header" data-key="goals"><img src="goals.png" alt="goals" class="who-icon">Cele (może na 2025?)</h2>
+                <ul id="goals"> <br>
+                    <li>rozwijać tę stronę</li>
+                    <li>czytać regularnie książki</li>
+                    <li>nauczyć się grać na gitarze lub ukulele</li>
+                    <li>nauczyć się gotować więcej zdrowego jedzenia</li>
+                    <li>nauczyć się hiszpańskiego</li>
+                    <li>spróbować DMT lub innych psychodelików</li>
+                    <li>poznać ciekawych ludzi i ich nie zniechęcić</li>
+                    <li>przetrwać praktyki i zdać egzamin INF04</li>
+                    <li>zdać egzamin na prawo jazdy</li>
+                    <li>zaangażować się w jakiś projekt z moim partnerem i przyjacielem</li>
+                </ul> <br>
+                <h2 class="who-header" data-key="achievements"><img src="achi.svg" alt="achi" class="who-icon">Rzeczy, które udało mi się osiągnąć w 2024 roku</h2>
+                <ul id="achievements"> <br>
+                    <li>przeżyć praktyki i zdać INF03</li>
+                    <li>chodzić na siłownię</li>
+                    <li>spróbować LSD</li>
+                    <li>ugotować: kurczaka, makaron ze szpinakiem, naleśniki</li>
+                    <li>przetrwać teorię i połowę części praktycznej kursu na prawo jazdy</li>
+                    <li>stworzyć strony: zawartość fruktozy i laktozy, kalkulator czasu wolnego na rok</li>
+                    <li>nauczyć się trochę grać na kalimbie</li>
+                    <li>zadbać o własną roślinę od nasionka (bazylia)</li>
+                    <li>uczestniczyć w warsztatach ICP</li>
+                </ul>                
+            </div>
+        </section>
+        <div class="empty-column"></div>
+    </div>
+    <footer>
+        <h6 data-key="created_by">stworzone 23.10.2024 przez kalafioreg</h6>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.querySelector(".language-icon").addEventListener("click", function () {
+            document.querySelector(".language-list").classList.toggle("active");
+        });
+
+        document.getElementById("en").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "index.html"; 
+        });
+    
+        document.getElementById("pl").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "index_pl.html"; 
+        });
+    </script>
+</body>
+</html>

@@ -11,10 +11,10 @@
     <div class="header-image"></div>
     <section>
         <div class="nav-items">
-            <a href="index.html" class="nav-link">About me</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="#other" class="nav-link">Others</a>
-            <a href="#contact" class="nav-link">Contact</a>            
+            <a href="index.html" class="nav-link" data-key="about_me">About me</a>
+            <a href="projects.html" class="nav-link" data-key="projects">Projects</a>
+            <a href="others.html" class="nav-link" data-key="others">Others</a>
+            <a href="contact.html" class="nav-link" data-key="contact">Contact</a>            
             <div class="language-dropdown">
                 <img src="lang.png" alt="Language" class="language-icon">
                 <div class="language-list">                    
@@ -24,77 +24,97 @@
             </div>
         </div>
     </section>
-    <section class="profile-section">
-        <div class="profile-left">
-            <img src="me.png" alt="photo">
-            <table>
-                <tr>
-                    <th colspan="2" style="text-align: center;">basic info</th>
-                </tr>
-                <tr>
-                    <td>pronouns</td>
-                    <td>she/he</td>
-                </tr>
-                <tr>
-                    <td>MBTI</td>
-                    <td>INFJ</td>
-                </tr>
-                <tr>
-                    <td>traits</td>
-                    <td>honest, conscientious, skeptical, empathetic</td>
-                </tr>
-                <tr>
-                    <td>from</td>
-                    <td>Poland</td>
-                </tr>
-                <tr>
-                    <td>birth date</td>
-                    <td>10 October</td>
-                </tr>
-                <tr>
-                    <td>interests</td>
-                    <td>psychology, philosophy, nature, health, psychedelics, design, technology, cartoons</td>
-                </tr>
-                <tr>
-                    <td>disorders</td>
-                    <td>asd, social anxiety, selective mutism</td>
-                </tr>
-            </table>
-        </div>
-        <div class="profile-description"> <br>
-            <h2>Who is kalafioreg?</h2>
-            <p>Hello, I live in your walls. No, but seriously, I am one of very many beings on this planet. And like everyone else, I'm trying to discover who I really am and what I want to do in my life.</p>
-            <p>Despite many difficulties, I am determined to constantly develop, to make my and yours life better.</p> <br>
-            <h2>Goals (maybe for 2025?):</h2> <br>
-            <ul id="goals">
-                <li>develop this site</li>
-                <li>read books regularly</li>
-                <li>learn to play the guitar or ukulele</li>
-                <li>learn to cook more healthy food</li>
-                <li>learn Spanish</li>
-                <li>try DMT or maybe more psychedelics</li>
-                <li>meet some interesting people and not discourage them</li>
-                <li>survive the internship and pass INF04 exam</li>
-                <li>pass driving test</li>
-                <li>engage in some project with my lover and friend</li>
-            </ul> <br>
-            <h2>Things I managed to do in 2024:</h2> <br>
-            <ul id="goals">
-                <li>survive the internship and pass INF03</li>
-                <li>go to the gym</li>
-                <li>try LSD</li>
-                <li>cook: chicken, pasta with spinach, pancakes</li>
-                <li>survive the theoretical and half of the practical part of driving course</li>
-                <li> create websites: fructose and lactose content, free time per year calc</li>
-                <li>learn to play the kalimba a little</li>
-                <li>take care of my own plant from a seed (basil)</li>
-                <li>attend ICP workshops</li>
-            </ul>
-        </div>
-    </section>
+    <div class="columns-container">
+        <div class="empty-column"></div>
+        <section class="profile-section">
+            <div class="profile-left">
+                <img src="me.png" alt="photo">
+                <table>
+                    <tr>
+                        <th colspan="2" style="text-align: center;" data-key="basic_info">basic info</th>
+                    </tr>
+                    <tr>
+                        <td data-key="pronouns">pronouns</td>
+                        <td>she/he <img src="nb.png" alt="nonbinary"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="mbti">MBTI*</td>
+                        <td>INFJ <img src="infj.png" alt="infj"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="traits">traits</td>
+                        <td>honest, conscientious, skeptical, empathetic</td>
+                    </tr>
+                    <tr>
+                        <td data-key="from">from</td>
+                        <td>Poland <img src="pflag.png"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="birth_date">birth date</td>
+                        <td>10 October <img src="leaf.png" alt="leaf"></td>
+                    </tr>
+                    <tr>
+                        <td data-key="interests">interests</td>
+                        <td>psychology, philosophy, nature, health, psychedelics, design, technology, cartoons</td>
+                    </tr>
+                    <tr>
+                        <td data-key="disorders">disorders</td>
+                        <td>asd, social anxiety, selective mutism</td>
+                    </tr>
+                </table> <br>
+                <h5><a href="https://pl.wikipedia.org/wiki/Test_Myers-Briggs" target="_blank" style="color: #7ca709; font-weight: bold; text-decoration: none;" data-key="what_is_mbti">*What is MBTI?</a></h5>
+            </div>
+            <div class="profile-description"> <br>
+                <h2 class="who-header" data-key="who_is"><img src="who.png" alt="who" class="who-icon">Who is kalafioreg</h2>
+                <p data-key="who_text">Hello, I live in your walls. No, but seriously, I am one of very many beings on this planet. And like everyone else, I'm trying to discover who I really am and what I want to do in my life.</p>
+                <p data-key="who_text2">Despite many difficulties, I am determined to constantly develop, to make my and yours life better.</p> <br>
+                <h2 class="who-header" data-key="goals"><img src="goals.png" alt="goals" class="who-icon">Goals (maybe for 2025?)</h2>
+                <ul id="goals"> <br>
+                    <li>develop this site</li>
+                    <li>read books regularly</li>
+                    <li>learn to play the guitar or ukulele</li>
+                    <li>learn to cook more healthy food</li>
+                    <li>learn Spanish</li>
+                    <li>try DMT or maybe more psychedelics</li>
+                    <li>meet some interesting people and not discourage them</li>
+                    <li>survive the internship and pass INF04 exam</li>
+                    <li>pass driving test</li>
+                    <li>engage in some project with my lover and friend</li>
+                </ul> <br>
+                <h2 class="who-header" data-key="achievements"><img src="achi.svg" alt="achi" class="who-icon">Things I managed to do in 2024</h2>
+                <ul id="achievements"> <br>
+                    <li>survive the internship and pass INF03</li>
+                    <li>go to the gym</li>
+                    <li>try LSD</li>
+                    <li>cook: chicken, pasta with spinach, pancakes</li>
+                    <li>survive the theoretical and half of the practical part of driving course</li>
+                    <li>create websites: fructose and lactose content, free time per year calc</li>
+                    <li>learn to play the kalimba a little</li>
+                    <li>take care of my own plant from a seed (basil)</li>
+                    <li>attend ICP workshops</li>
+                </ul>
+            </div>
+        </section>
+        <div class="empty-column"></div>
+    </div>
     <footer>
-        <h6>created 22.10.2024 by kalafioreg</h6>
+        <h6 data-key="created_by">created 23.10.2024 by kalafioreg</h6>
     </footer>
     <script src="script.js"></script>
+    <script>
+        document.querySelector(".language-icon").addEventListener("click", function () {
+            document.querySelector(".language-list").classList.toggle("active");
+        });
+
+        document.getElementById("en").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "index.html"; 
+        });
+    
+        document.getElementById("pl").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "index_pl.html"; 
+        });
+    </script>
 </body>
 </html>

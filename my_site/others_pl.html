@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalafioreg's site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="header-image"></div>
+    <section>
+        <div class="nav-items">
+            <a href="index_pl.html" class="nav-link">O mnie</a>
+            <a href="project_pl.html" class="nav-link">Projekty</a>
+            <a href="others_pl.html" class="nav-link">Inne</a>
+            <a href="contact_pl.html" class="nav-link">Kontakt</a>            
+            <div class="language-dropdown">
+                <img src="lang.png" alt="Language" class="language-icon">
+                <div class="language-list">                    
+                    <a href="others.html" id="en"><img src="eflag.png" alt="en"></a>
+                    <a href="others_pl.html" id="pl"><img src="pflag.png" alt="pl"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="columns-container">
+        <div class="empty-column"></div>
+        <section class="profile-section">
+            <div class="profile-left"> <br>
+                <h2>W trakcie budowy...</h2><br><br>
+                <img src="mine.gif" alt="photo" class="social"> 
+            </div>
+        </section>
+        <div class="empty-column"></div>
+    </div>
+    <footer>
+        <h6>stworzono 23.10.2024 przez kalafioreg</h6>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.querySelector(".language-icon").addEventListener("click", function () {
+            document.querySelector(".language-list").classList.toggle("active");
+        });
+
+        document.getElementById("en").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "others.html"; 
+        });
+    
+        document.getElementById("pl").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "others_pl.html"; 
+        });
+    </script>
+</body>
+</html>

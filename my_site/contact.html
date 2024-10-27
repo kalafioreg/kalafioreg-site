@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalafioreg's site</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="header-image"></div>
+    <section>
+        <div class="nav-items">
+            <a href="index.html" class="nav-link">About me</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="others.html" class="nav-link">Others</a>
+            <a href="contact.html" class="nav-link">Contact</a>            
+            <div class="language-dropdown">
+                <img src="lang.png" alt="Language" class="language-icon">
+                <div class="language-list">                    
+                    <a href="contact.html" id="en"><img src="eflag.png" alt="en"></a>
+                    <a href="contact_pl.html" id="pl"><img src="pflag.png" alt="pl"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="columns-container">
+        <div class="empty-column"></div>
+        <section class="profile-section">
+            <div class="profile-left"><br>
+                <h2 class="who-header"><img src="frien.png" alt="who" class="who-icon">Feel free to text me, <br> follow me or join my server c:</h2> 
+                <img src="social.png" alt="photo" class="social"> 
+            </div>
+            <div class="profile-right">
+                <table>
+                    <tr>
+                        <th style="text-align: center;">Socials</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="media">
+                                <img src="gh1.jpg" alt="GitHub"><a href="https://github.com/kalafioreg" target="_blank">Github</a>
+                            </div> <br>
+                            <div class="media">
+                                <img src="dc.webp" alt="DC"><a href="https://discord.gg/ZVc8sJrQ" target="_blank">Discord Server</a>
+                            </div> <br>
+                            <div class="media">
+                                <img src="gmail.webp" alt="Email" style="cursor:pointer;" onclick="copyEmail(this)"> <span onclick="copyEmail(this)" style="cursor:pointer; color: #7ca709; font-weight: bold;"><h4>Email</h4></span>
+                            </div><br>
+                            <div class="media">
+                                <img src="fb.png" alt="FB"><a href="https://www.facebook.com/prawdziwykalafioreg/" target="_blank">Facebook</a>
+                            </div><br>
+                            <div class="media">
+                                <img src="yt.bak.png" alt="YT"><a href="https://www.youtube.com/@kalafioreg" target="_blank">Youtube</a>
+                            </div><br>
+                            <div class="media">
+                                <img src="ig.webp" alt="IG"><a href="https://www.instagram.com/kalafioreg/" target="_blank">Instagram</a>
+                            </div> <br>
+                            <div class="media">
+                                <img src="spotify.png" alt="Spotify"><a href="https://open.spotify.com/user/4nik6ttnfs6nbqgmkonelqs4f" target="_blank">Spotify</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="copy-message" id="copyMessage">Copied!</div>
+        </section>
+        <div class="empty-column"></div>
+    </div>
+    <footer>
+        <h6>created 23.10.2024 by kalafioreg</h6>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function copyEmail(element) {
+            const email = 'natkaj2006@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const message = document.getElementById('copyMessage');
+                const rect = element.getBoundingClientRect();
+                message.style.left = `${rect.left + window.scrollX}px`;
+                message.style.top = `${rect.top + window.scrollY - 30}px`;
+                message.style.display = 'block';
+                message.style.opacity = 1;
+
+                setTimeout(() => {
+                    message.style.opacity = 0;
+                    setTimeout(() => {
+                        message.style.display = 'none';
+                    }, 500);
+                }, 2000);
+            }).catch(err => {
+                console.error('nothing happened', err);
+            });
+        }
+
+    document.querySelector(".language-icon").addEventListener("click", function () {
+        document.querySelector(".language-list").classList.toggle("active");
+    });
+
+    document.getElementById("en").addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "contact.html"; 
+    });
+
+    document.getElementById("pl").addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "contact_pl.html"; 
+    });
+
+    </script>
+</body>
+</html>

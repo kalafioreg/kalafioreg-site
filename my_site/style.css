@@ -7,6 +7,9 @@ body {
     font-family: Roboto;
     margin: 0%;
     background-color: #303030;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .header-image {
     width: 100%;
@@ -29,7 +32,7 @@ section {
 
 .nav-items {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 .nav-items a {
     color: #d9d6d1;
@@ -41,18 +44,41 @@ section {
     text-decoration: none;
     font-size: 20px;
 }
-.flags {
+
+/* Styl dla ikony języka */
+.language-dropdown {
     display: flex;
-    margin-left: 60px;
+    align-items: center;
+    position: relative;
+    margin-left: 8px;
+}
+
+/* Ukrycie listy języków domyślnie */
+.language-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333; /* Kolor tła dla rozwijanej listy */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Styl dla aktywnej listy */
+.language-list.active {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
-.flags img {
+
+.language-list img {
     width: 30px;
     cursor: pointer;
 }
 
-/* profile */
 
+
+/* profile */
 .profile-section {
     display: flex;
     justify-content: center;
@@ -63,13 +89,30 @@ section {
 .profile-section img {
     width: 200px;
     height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
     margin-right: 20px;
 }
 .profile-description {
     max-width: 600px;
     align-items: flex-start;
+}
+.profile-description .who-icon {
+    width: auto; /* Ustaw odpowiedni rozmiar ikonki */
+    height: 40px;
+    margin-right: 10px; /* Dodaje trochę odstępu po prawej stronie ikonki */
+}
+.profile-section .profile-left .social 
+{
+    margin: 25px;
+}
+.who-header {
+    display: flex;
+    align-items: center; /* Wyśrodkowanie w pionie */
+}
+
+.profile-description .who-icon, .profile-section .who-icon {
+    width: auto; /* Ustaw odpowiedni rozmiar ikonki */
+    height: 40px;
+    margin-right: 10px; /* Dodaje trochę odstępu po prawej stronie ikonki */
 }
 .profile-description h2 {
     margin: 0;
@@ -78,7 +121,65 @@ section {
 .profile-description p {
     margin: 10px 0;
     line-height: 1.5;
+    font-size: 18px;
 }
+.profile-section table td img {
+    width: auto;
+    height: 25px;
+    margin-right: 5px;
+    margin-bottom: 4px; /* Usunięcie marginesu dolnego */
+    line-height: 2px;   /* Wyzerowanie wysokości linii */
+    display: inline-block; /* Alternatywnie dla block */
+    vertical-align: top; /* Wyrównanie do góry */
+}
+
+.profile-section table td img::after {
+    content: attr(data-title); 
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 3px 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none; 
+}
+.image-container {
+    display: inline-block;
+    position: relative; 
+    margin-right: 5px;
+}
+
+.image-container::after {
+    content: attr(data-title); 
+    position: absolute;
+    top: -25px; /* Nad obrazkiem */
+    left: 50%; 
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: none; /* Ukryj domyślnie */
+}
+
+.image-container:hover::after {
+    display: block; /* Pokaż tooltip po najechaniu */
+}
+
+
+.image-container:hover::after {
+    display: block;
+}
+
+.image-container img {
+    vertical-align: middle;
+    height: 20px;
+}
+
 
 table {
     width: 100%;
@@ -107,8 +208,6 @@ th {
 .profile-left img {
     width: 200px;
     height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
     margin-bottom: 20px;
 }
 
@@ -116,6 +215,7 @@ footer {
     text-align: right;
     color: #d9d6d1;
     background-color: #202020;
+    margin-top: auto;
 }
 
 /* lang */
@@ -162,7 +262,7 @@ footer {
 
 /* sites */
 
-#sites a {
+#sites a, .media a {
     color: #7ca709;
     text-decoration: none;
     font-weight: bold;
@@ -175,45 +275,150 @@ footer {
     margin-bottom: 10px; 
 }
 
-#sites {
-    list-style-type: none;
-    padding: 0;
-    display: flex; 
-    flex-wrap: wrap; 
-}
-
 .link-container:hover {
     transform: scale(1.05); 
 }
 
-.link-container img {
-    width: 100%; /* Obrazek zajmuje całą szerokość kontenera */
-    height: auto; /* Zachowuje proporcje */
-    max-width: 150px; /* Maksymalna szerokość obrazka */
-    max-height: 150px; /* Maksymalna wysokość obrazka */
-    border-radius: 12px; /* Zaokrąglone rogi */
-    display: block; 
-    margin: 0 auto 10px; 
+#sites {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#sites li {
+    flex-basis: calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    margin-bottom: 20px;
 }
 
 .link-container {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column; 
-    width: 200px; 
-    border: 1px solid #d9d6d1; 
-    border-radius: 8px; 
+    flex-direction: column;
+    border: 2px solid #555555;
+    border-radius: 8px;
     padding: 10px;
-    text-align: center; 
-    margin: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.link-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.link-container span {
+    font-size: 16px; /* Ustaw tę samą wartość dla wszystkich elementów */
+    line-height: 1.5; /* Ustaw tę samą wartość dla wszystkich elementów */
+    text-align: center; /* Wyrównanie tekstu do środka */
+    margin: 0; /* Upewnij się, że nie ma dodatkowych marginesów */
+}
+
+/* Dodatkowe style dla link-container, jeśli są potrzebne */
+.link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyrównanie do środka */
+    width: 100%; /* Umożliwia pełną szerokość kontenera */
+}
+
+@media (max-width: 768px) {
+    #sites {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #sites li {
+        flex-basis: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+
+    .link-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .link-container span {
+        white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+        overflow: visible; /* Umożliwia wyświetlenie całego tekstu */
+        text-overflow: clip; /* Nie dodaje kropek, gdy tekst jest za długi */
+    }
+
+    .link-container {
+        display: flex; /* Utrzymuje układ flex */
+        flex-direction: column; /* Utrzymuje układ pionowy */
+        align-items: flex-start; /* Wyrównuje elementy do lewej */
+        width: 100%; /* Umożliwia pełną szerokość kontenera */
+    }
+
+    .link-container span {
+        white-space: normal; /* Pozwala na zawijanie tekstu */
+        overflow: hidden; /* Ukrywa nadmiarowy tekst */
+        text-overflow: ellipsis; /* Dodaje kropki, jeśli tekst jest za długi */
+        width: 100%; /* Umożliwia pełną szerokość dla tekstu */
+    }
+}
+
+.link-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Efekt uniesienia przy najechaniu myszką */
+    transform: translateY(-3px); /* Lekkie uniesienie przy najechaniu myszką */
+}
+
+.link-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 4px; /* Lekko zaokrąglamy rogi obrazka */
+}
+
+.link-container span {
+    text-align: center;
+    margin-top: auto; /* Przesuwa tekst na dół kontenera */
+    padding: 5px 0; /* Dodaje trochę przestrzeni nad i pod tekstem */
 }
 
 .date-counter {
-    font-size: 12px; /* Zmniejszenie rozmiaru czcionki */
-    color: #aba499; /* Ustawienie koloru tekstu */
-    text-align: right; /* Wyrównanie tekstu do prawej strony */
-    margin-top: 5px; /* Dodatkowa przestrzeń nad napisem */
+    margin-top: 10px;
+    text-align: right;
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* Styl dla kontenera z "free time per year" i "fructose content" */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.info-container span {
+    font-size: 0.9em; /* Zmniejsz rozmiar czcionki, jeśli to konieczne */
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 600px) {
+    #sites li {
+        flex-basis: 100%; /* Na mniejszych ekranach jedna miniatura na linię */
+    }
 }
 
 /* slides */
@@ -221,47 +426,224 @@ footer {
 .slideshow-container {
     position: relative;
     max-width: 100%;
-    margin: 30px auto; /* Wyśrodkowanie z dodatkową przestrzenią nad i pod */
-    text-align: center; /* Wyśrodkowanie zawartości */
-    overflow: hidden; /* Ukrywa część zawartości, która wychodzi poza kontener */
+    margin: 30px auto;
+    overflow: hidden;
+    text-align: center;
 }
 
 .slide {
-    display: none; /* Ukrywa wszystkie slajdy */
-    position: relative; /* Umożliwia pozycjonowanie elementów wewnątrz */
+    display: none;
+    position: relative;
 }
 
 .slide-image {
-    width: 100%; /* Ustalamy szerokość na 100% kontenera */
-    height: auto; /* Ustalamy wysokość na auto, aby zachować oryginalny format */
-    max-height: 300px; /* Ustalamy maksymalną wysokość dla slajdów */
-    object-fit: contain; /* Zachowuje całe obrazy w oryginalnym formacie */
-    margin: 0 auto; /* Wyśrodkowanie obrazu */
-    display: block; /* Blokowy, aby margin auto zadziałał */
-    border-radius: 0; /* Usunięcie zaokrąglenia */
+    width: 80%; 
+    max-width: 800px; 
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 0;
+    position: relative;
 }
 
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
+    transform: translateY(-50%);
     padding: 16px;
-    color: white;
+    color: #d9d6d1;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    transition: 0.3s ease;
     user-select: none;
+    z-index: 1;
+    background-color: #303030; 
 }
-
-.next {
-    right: 0;
+.prev {
+    left: calc(10% + 10px); 
     border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.next {
+    right: calc(10% + 10px); 
+    border-radius: 0 3px 3px 0;
 }
+
+.prev:hover, .next:hover {
+    background-color: #72960f;
+}
+.copy-message {
+    display: none;
+    position: absolute;
+    background-color: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d9d6d1;
+    padding: 5px;
+    color: #d9d6d1;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+.profile-left .social {
+    width: 60%;
+    max-width: 500px; 
+    height: auto; 
+}
+
+.columns-container {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.empty-column {
+    flex: 1; 
+}
+
+.profile-section {
+    flex: 2; 
+    padding: 20px; 
+}
+.media {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* odstęp między ikoną a tekstem */
+}
+
+
+@media (max-width: 768px) {
+    /* Ustawienie profilu i opisu w układzie pionowym */
+    .columns-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-section {
+        display: block; /* Przełącza sekcję na układ blokowy */
+        width: 100%;
+    }
+
+    .profile-left, 
+    .profile-description {
+        width: 100%; /* Zajmują całą szerokość sekcji */
+        margin: 10px 0;
+
+    }
+    #sites li {
+        display: flex;
+        justify-content: center; /* Wyrównuje elementy do środka */
+    }
+
+    .link-container {
+        width: 200px; /* Stała szerokość kontenera */
+        height: 200px; /* Stała wysokość kontenera */
+        overflow: hidden; /* Ukrywa nadmiarowe treści */
+        position: relative; /* Umożliwia pozycjonowanie wewnętrznych elementów */
+    }
+    .profile-right tr td .media a 
+    {
+        text-align: center;
+    }
+}
+.empty-column {
+    background-color: #333; /* Ciemny szary kolor */
+}
+
+.columns-container {
+    background-color: #333; /* Ciemny szary kolor dla tła kontenera */
+}
+#sites + nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.pagination .page-link {
+    color: #459f9f; /* Kolor tekstu */
+    background-color: transparent; /* Przezroczyste tło */
+    border-color: #459f9f; /* Kolor obramowania */
+}
+
+.pagination .page-item.active .page-link {
+    color: #fff; /* Biały kolor tekstu dla aktywnej strony */
+    background-color: #459f9f; /* Kolor tła dla aktywnej strony */
+    border-color: #459f9f; /* Kolor obramowania dla aktywnej strony */
+}
+
+.pagination .page-link:hover,
+.pagination .page-link:focus {
+    color: #fff; /* Biały kolor tekstu przy najechaniu/fokusie */
+    background-color: #3a8686; /* Nieco ciemniejszy odcień przy najechaniu/fokusie */
+    border-color: #3a8686; /* Kolor obramowania przy najechaniu/fokusie */
+}
+
+.certificate-column.second-column {
+    font-size: 0.9em; /* Zmniejsza rozmiar tekstu o 10% */
+}
+
+.certificate-column.second-column h3 {
+    font-size: 1.1em; /* Dostosuj rozmiar nagłówków, jeśli potrzeba */
+}
+
+.certificate-column.second-column p {
+    font-size: 0.95em; /* Możesz dostosować rozmiar paragrafów osobno */
+}
+
+/* Zmniejszamy rozmiar tekstu w drugiej kolumnie tabeli certyfikatów */
+.certificate-details {
+    font-size: 0.9em; /* Zmniejszamy rozmiar tekstu o 10% */
+}
+
+/* Jeśli chcemy zmniejszyć tylko nagłówki h5 w tej kolumnie */
+.certificate-details h5 {
+    font-size: 0.95em; /* Możemy dostosować ten rozmiar według potrzeb */
+}
+
+/* Jeśli chcemy zmniejszyć tylko zwykły tekst, ale nie nagłówki */
+.certificate-details:not(h5) {
+    font-size: 0.9em;
+}
+
+
+
+/* Zmniejszamy rozmiar tekstu w całej drugiej kolumnie tabeli certyfikatów */
+table td:nth-child(2) {
+    font-size: 0.9em; /* Zmniejszamy rozmiar tekstu o 10% */
+}
+
+/* Jeśli chcemy zmniejszyć nagłówki h5 w tej kolumnie */
+table td:nth-child(2) h5 {
+    font-size: 0.95em; /* Możemy dostosować ten rozmiar według potrzeb */
+}
+
+/* Jeśli chcemy zachować oryginalny rozmiar nagłówka kolumny */
+table th:nth-child(2) {
+    font-size: 1em; /* Lub inny rozmiar, jaki preferujesz dla nagłówka */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
